@@ -1,60 +1,48 @@
 class Solution {
     public int maxFreeTime(int eventTime, int k, int[] startTime, int[] endTime) {
-        /*
+        // /*
         List<Integer> map = new ArrayList<>();
         int end = 0, max= 0;
         int count =0, ans=0;
 
         
-        
-        for(int i=0; i< startTime.length; i++){
+        map.add(startTime[0] );
+        for(int i=1; i< startTime.length; i++){
             if(startTime[i] - end > 0){
-                map.add(startTime[i] - end);
-                //  System.out.println(startTime[i] - end);
-                count++;
+                map.add(startTime[i] - endTime[i-1]);
+               
             }
-            end = endTime[i];
-           
+            
         }
         // for last index
-        if(end != eventTime){
-            map.add(eventTime - end);
-            // System.out.println(eventTime - end);
-        }
-
+        map.add(eventTime - endTime[endTime.length - 1]);
         // slide the window over map
         
-        if(map.size()==1){
-            return map.get(0);
-        }
-        else if(map.size() <= k){
-            for(int i=0; i< map.size(); i++){
-                ans+=map.get(i);
-            }
-            return ans;
-        }
+        // if(map.size()==1){
+        //     return map.get(0);
+        // }
+        // else if(map.size() <= k){
+        //     for(int i=0; i< map.size(); i++){
+        //         ans+=map.get(i);
+        //     }
+        //     return ans;
+        // }
         int j=0;
         for(int i=0; i<map.size();i++){
-            // ans += map.get(i);
-            // if(i-j+1 == k+1){
-            //     max = Math.max(max, ans);
-            //     ans -= map.get(j);
-            //     j++;
-            // }
             ans += map.get(i);
-            if (i >= k+1) {
-                ans -= map.get(i - k+1);
-            }
-            if (i >= k) {
+            if(i-j+1 >= k+1){
                 max = Math.max(max, ans);
+                ans -= map.get(j);
+                j++;
             }
+          
         }
         return max;
 
 
-        */
-
-         int n = startTime.length;
+        // */
+/*
+        int n = startTime.length;
 
         List<Integer> gaps = new ArrayList<>();
 
@@ -79,5 +67,6 @@ class Solution {
         }
 
         return res;
+        */
     }
 }
