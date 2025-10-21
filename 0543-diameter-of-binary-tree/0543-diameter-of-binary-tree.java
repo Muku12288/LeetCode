@@ -16,6 +16,17 @@
 class Solution {
     int maxi=0;
     public int diameterOfBinaryTree(TreeNode node) {
+        // if(node == null)return 0;
+
+        // int lh = height(node.left);
+        // int rh = height(node.right);
+
+        // diameterOfBinaryTree(node.left);
+        // diameterOfBinaryTree(node.right);
+        height(node);
+        return maxi;
+    }
+    public int height(TreeNode node){
         if(node == null)return 0;
 
         int lh = height(node.left);
@@ -23,23 +34,6 @@ class Solution {
 
         maxi = Math.max(maxi, lh+rh);
 
-        diameterOfBinaryTree(node.left);
-        diameterOfBinaryTree(node.right);
-
-        return maxi;
-    }
-    public int leftHeight(TreeNode node){
-        if(node == null)return 0;
-
-        int lh = leftHeight(node.left);
-        return 1+lh;
-    }
-
-    public int height(TreeNode node){
-        if(node == null)return 0;
-
-        int lh = leftHeight(node.left);
-        int rh = leftHeight(node.right);
         return 1+ Math.max(lh, rh);
     }
 }
