@@ -21,16 +21,20 @@ class Solution {
     */
     public int maxRotateFunction(int[] nums) {
         int sum=0, n= nums.length, F=0;
-        
+        // Step 1: Calculate the sum of all elements and the initial F(0)
         for(int i=0; i<n; i++){
             sum+= nums[i];
             F += i*nums[i];
         }
         int maxi=F;
-
+        // Step 2: Calculate F(1) to F(n-1) using the recurrence relation
+       // Apply formula: F(k) = F(k-1) + sum - n * last_element_of_prev_rotation
+       // or F(k+1)=F(k)+sum-n*arr[n-k];
         for(int k=1;k<n; k++){
             F = F + sum-n*nums[n-k];
-            maxi = Math.max(maxi, F);
+            // Update max if F is larger
+            if(maxi<F)maxi = F;
+        
         }
         return maxi;
     }
