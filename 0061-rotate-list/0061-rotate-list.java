@@ -32,9 +32,7 @@ class Solution {
         else if(len<k || len>k){
             if(len<k)k=k%len;
             int n=Math.abs(len-k);
-            //System.out.println(n);
             end.next = head;
-            //System.out.println(end.val +" "+ end.next.val);
             ListNode itr =head;
             for(int i=0; i<n; i++){
                 
@@ -45,10 +43,11 @@ class Solution {
                 itr = itr.next;
             }
 
-
-        }else if(len == k){
-            return head;
         }
+        
+        //else if(len == k){
+        //     return head;
+        // }
     return head;
     }
 }
