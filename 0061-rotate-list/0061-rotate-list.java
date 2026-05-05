@@ -10,21 +10,21 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        ArrayList<Integer> arr = new ArrayList<>();
+        // ArrayList<Integer> arr = new ArrayList<>();
+        int len =0;
         ListNode end=null;
         ListNode node=head;
         
         while(node != null){
-            arr.add(node.val);
+            // arr.add(node.val);
+            len++;
             if(node.next == null){
-                //System.out.println(node.val);
                 end=node;
-                System.out.println(end.val +" "+ end.next);
             }
             node = node.next;
         }
-        int len=arr.size();
-        //System.out.println(len);
+        // int len=arr.size();
+        
 
         if(len<=1){
             return head;
@@ -44,10 +44,7 @@ class Solution {
             }
 
         }
-        
-        //else if(len == k){
-        //     return head;
-        // }
+    
     return head;
     }
 }
