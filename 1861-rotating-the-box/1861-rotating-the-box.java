@@ -17,32 +17,15 @@ class Solution {
                 if (grid[r][c] == '*') {
                     res[c][m - 1 - r] = '*';
                     p = c - 1;
-                } else if (grid[r][c] == '#')
-                    res[p--][m - 1 - r] = '#';
+                } else if (grid[r][c] == '#'){
+                    res[p][m - 1 - r] = '#';
+                    p--;
+                }
+                    
             }
         }
 
-     /*   for(int i=n-1; i>=0; i--){
-            for(int j=m-1; j>=0; j--){
-                char s = (box[m-1-j][i]);
-                int k=i-1;
-                while(s == '.' && k>=0){
-                    
-                    if(box[m-1-j][k] == '#'){
-                        box[m-1-j][k] = '.';
-                        result[i][j] = '#';
-                        break;
-                    }else if(box[m-1-j][k] == '*'){
-                        result[i][j] = '.';
-                        break;
-                    }
-                    k--;
-                }
-                if(s == '*'){
-                    result[i][j] = '*';
-                }
-            }
-        }*/
+    
     return res;
     }
 }
