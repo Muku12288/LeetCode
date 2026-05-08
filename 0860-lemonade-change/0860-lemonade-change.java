@@ -13,14 +13,14 @@ class Solution {
                 }  
             }
             else{
-                if(fc<=0)return false;
-                else if(tc<=0 && fc<3)return false;
-                else if(tc>=1 && fc>=1){
+                if(tc>=1 && fc>=1){
                     tc--;
                     fc--;
                 }
-                else if(tc<=0 && fc>=3){
+                else if(fc>=3){
                     fc -=3;
+                }else{
+                    return false;
                 }
             }
         }
