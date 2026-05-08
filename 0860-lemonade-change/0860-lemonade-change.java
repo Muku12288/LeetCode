@@ -2,9 +2,9 @@ class Solution {
     public boolean lemonadeChange(int[] bills) {
         int fc=0, tc=0;
 
-        for(int i=0;i<bills.length; i++){
-            if(bills[i]==5)fc++;
-            else if(bills[i]==10){
+        for(int x:bills){
+            if(x==5)fc++;
+            else if(x==10){
                 if(fc>=1){
                     fc--;
                     tc++;
