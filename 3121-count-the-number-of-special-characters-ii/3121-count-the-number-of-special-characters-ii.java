@@ -22,7 +22,7 @@ class Solution {
         }
 
         for(int i=0; i<26; i++){
-            System.out.println(upper[i] +" "+lower[i]);
+            // System.out.println(upper[i] +" "+lower[i]);
             if((upper[i] >lower[i]) && (lower[i] != -1)){
                 count ++;
             }
