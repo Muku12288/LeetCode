@@ -25,12 +25,12 @@ class Solution {
     }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        List<TreeNode> arr1 = new ArrayList<>();
-        List<TreeNode> arr2 = new ArrayList<>();
+       /* ..............Brute force 2O(N) time & space complexity.....................
+        List<TreeNode> arr1 = new ArrayList<>();    // O(N) space complexity
+        List<TreeNode> arr2 = new ArrayList<>();    // O(N) space complexity
 
-        getPath(root, arr1 , p.val);
-        getPath(root, arr2 , q.val);
-        // System.out.println(arr);
+        getPath(root, arr1 , p.val);  // O(N) time complexity
+        getPath(root, arr2 , q.val);    // O(N) time complexity
 
         int n = Math.min(arr1.size(),arr2.size());
         for(int i=0; i<n; i++){
@@ -42,5 +42,23 @@ class Solution {
             }
         }
         return root;
+        */
+
+        // ..................optimal.....................
+        if(root == null || root == p || root == q){
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if(left == null){
+            return right;
+        }
+        else if(right == null){
+            return left;
+        }
+        else{
+            return root;
+        }
     }
 }
