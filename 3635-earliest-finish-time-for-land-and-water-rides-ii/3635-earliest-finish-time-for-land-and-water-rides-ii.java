@@ -1,5 +1,5 @@
 class Solution {
-    final static int MAX = 300000;
+    final static int MAX = 300005;
 
     public int earliestFinishTime(int[] la, int[] lb, int[] wa, int[] wb) {
         int l = MAX, w = MAX, minL = MAX, minW = MAX;
